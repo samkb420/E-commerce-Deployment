@@ -7,12 +7,15 @@ spec:
   - host: sam.com
     http:
       paths:
-      - backend:
+      - path: /service-1
+        backend:
           serviceName: auth
           servicePort: 50
-      - backend:
+      - path: /service-2
+        backend:
           serviceName: product
           servicePort: 80
-      - backend:
+      - path: /service-3
+        backend:
           serviceName: order
           servicePort: 90
