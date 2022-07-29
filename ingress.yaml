@@ -20,7 +20,7 @@ spec:
 
       paths:
 
-      - path: /testpath
+      - path: /order
 
         pathType: Prefix
 
@@ -28,7 +28,7 @@ spec:
 
           service:
 
-            name: test
+            name: order-service
 
             port:
 
