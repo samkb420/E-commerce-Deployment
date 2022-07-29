@@ -1,24 +1,26 @@
- apiVersion: extensions/v1beta1
-    kind: Ingress
-    metadata:
-      name: ingress
-      annotations:
-        kubernetes.io/ingress.class: "nginx"
-        nginx.ingress.kubernetes.io/rewrite-target: /
-    spec:
-      tls:
-      - hosts:
-        - test.test.com
+--- 
+apiVersion: 
+  kind: Ingress
+  metadata: 
+    name: ingress
+  spec: 
+    rules: 
+      - 
+        host: test.test.com
+        http: 
+          paths: 
+            - 
+              backend: 
+                serviceName: service-1
+                servicePort: 5000
+              path: /service-1
+            - 
+              backend: 
+                serviceName: service-2
+                servicePort: 8080
+              path: /service-2
+    tls: 
+      - 
+        hosts: 
+          - test.test.com
         secretName: prod
-      rules:
-      - host: test.test.com
-        http:
-          paths:
-          - path: /service-1
-            backend:
-              serviceName: service-1
-              servicePort: 5000
-          - path: /service-2
-            backend:
-              serviceName: service-2
-              servicePort: 8080
